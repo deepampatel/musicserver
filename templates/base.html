@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Media Player - {{ title }}</title>
+</head>
+<body>
+
+{% block play%}{% endblock %}
+    <form action = "http://192.168.43.231/upload" method = "post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="upload">
+</body>
+</html>
