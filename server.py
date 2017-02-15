@@ -56,6 +56,6 @@ def index():
 
 if __name__ == '__main__':
     host_self = '127.0.0.1'
-    host_remote = '172.16.167.218'
+    host_remote = 'YOUR IP'
     app.run(host=host_self, port=80)
     # app.run(debug=True)
