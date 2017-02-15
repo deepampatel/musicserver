@@ -2,8 +2,26 @@
 {% block play %}
 
 <h3> {{ title }} </h3>
-        <audio controls autoplay>
-                <source src="static/tppp/{{ music_file }}" type="audio/mp3">
-                Your browser does not support this audio format.
-        </audio>
+<audio id="songtag" autoplay controls="controls" onplay="start()">
+    <source src="{{ music_file }}" type="audio/mp3">
+    Your browser does not support this audio format.
+</audio>
+<script>
+    var playlist=[{{ playlist|tojson }}];
+    finalplay=JSON.parse(playlist)
+    var i=0;
+    var audio = document.getElementById('songtag');
+    function start(){
+    audio.addEventListener('ended',function(){
+    i++;
+    audio.src='static/tppp/' + finalplay[i];
+    console.log(audio.src);
+    audio.play();
+    },true);
+}
+
+</script>
+
 {% endblock %}
+
+
